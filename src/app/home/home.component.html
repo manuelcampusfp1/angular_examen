@@ -1,0 +1,27 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="">Introduce tu correo electronico y obtienes un codigo promocional exclusivo</label>
+                <input type="email" class="form-control" placeholder="Correo electrónico">
+            </div>
+            <div class="col-md-6">
+                <b style="color: #198754;">El codigo se debe mostrar aqui</b>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card col-md-3" style="padding: 20px;margin: 10px;" *ngFor="let peli of pelis">
+                <div class="card-body">
+                    <h5 class="card-title">{{peli.title}}</h5>
+                    <p class="card-text">{{peli.description}}</p>
+                    <select name="idioma" id="idioma" class="form-control">
+                        <option value="">Seleccione un idioma</option>
+                        <option *ngFor="let idioma of idiomas" value="">{{idioma.name}}</option>
+                    </select><br>
+                    <button type="button" class="btn btn-info btn-fill pull-center">Cambiar Idioma</button><br><br>
+                    <a routerLink="/actores" [queryParams]="{ id: peli.film_id }">Ver Actores</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
